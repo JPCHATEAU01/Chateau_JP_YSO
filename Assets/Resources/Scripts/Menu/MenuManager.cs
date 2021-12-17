@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     public Text version;
-    // Start is called before the first frame update
+    
     void Start()
     {
         version.text = GameManager.Instance().GetVersion();
