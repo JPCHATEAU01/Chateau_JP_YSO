@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : Singleton<LevelLoader>
+public class LevelLoader : Singleton<LevelLoader>, IVisible
 {
     public Animator fadeAnimator;
     public Canvas canvas;
@@ -15,7 +15,7 @@ public class LevelLoader : Singleton<LevelLoader>
     public void Start()
     {
         GetScenes();
-        DesactivateCanvas();
+        DesactivateGameObject();
     }
 
     public void LoadScreen(string sceneName)
@@ -25,7 +25,7 @@ public class LevelLoader : Singleton<LevelLoader>
             sceneName = scenesName[0];
         }
         sceneToLoad = sceneName;
-        ActivateCanvas();
+        ActivateGameObject();
         fadeAnimator.SetTrigger("StartFadeIn");
     }
 
@@ -36,8 +36,8 @@ public class LevelLoader : Singleton<LevelLoader>
             return;
         }
         alreadyLoading = true;
-        Debug.Log("levelLoader_LoadScene");
-        ActivateCanvas();
+        //Debug.Log("levelLoader_LoadScene");
+        ActivateGameObject();
         coroutine = LoadAsyncScene(sceneToLoad);
         StartCoroutine(coroutine);
     }
@@ -65,7 +65,7 @@ public class LevelLoader : Singleton<LevelLoader>
         return false;
     }
 
-    private void GetScenes()
+    void GetScenes()
     {
         int sceneCount = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
         for (int i = 0; i < sceneCount; i++)
@@ -74,14 +74,14 @@ public class LevelLoader : Singleton<LevelLoader>
             scenesName.Add(sceneName);
         }
     }
+    public void ActivateGameObject()
+    {
+        canvas.gameObject.SetActive(true);
+    }
 
-    private void DesactivateCanvas()
+    public void DesactivateGameObject()
     {
         canvas.gameObject.SetActive(false);
     }
 
-    private void ActivateCanvas()
-    {
-        canvas.gameObject.SetActive(true);
-    }
 }
