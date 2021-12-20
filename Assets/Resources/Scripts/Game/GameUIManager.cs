@@ -22,7 +22,7 @@ public class GameUIManager : MonoBehaviour
         OptionManager.Instance().ActivateGameObject();
     }
 
-    public void SetHandle(Sprite sprite)
+    public void SetLogo(Sprite sprite)
     {
         handleImage.sprite = sprite;
     }

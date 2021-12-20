@@ -59,7 +59,7 @@ public class LevelManager : Singleton<LevelManager>
         {
             typePlayer = 0;
         }
-        gameUIManager.SetHandle(img[typePlayer]);
+        gameUIManager.SetLogo(img[typePlayer]);
     }
 
     public void SetDeplacement(int deplacementY)

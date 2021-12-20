@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
 
     public void MovePlayer(Vector2 direction)
     {
-        Debug.Log(deplacementY);
         if (deplacementY == 0)
         {
             direction.y = 0;
