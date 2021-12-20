@@ -8,7 +8,6 @@ public class Asteroid : MonoBehaviour
     private bool isprevent = false;
     private GameObject prevent;
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -69,7 +68,6 @@ public class Asteroid : MonoBehaviour
 
     public void SetSpeed(float speed)
     {
-        Debug.Log("speed" + speed);
         this.speed = speed;
     }
 }

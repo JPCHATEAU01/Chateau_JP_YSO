@@ -20,9 +20,6 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlayIntro()
     {
-        Debug.Log(musicPlaying);
-        Debug.Log(intro.name);
-
         if(musicPlaying != intro.name)
         {
             musicPlaying = intro.name;

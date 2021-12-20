@@ -30,8 +30,9 @@ public class MenuManager : MonoBehaviour
         panelPlay.SetActive(false);
     }
 
-    public void LaunchGame()
+    public void LaunchGame(string level)
     {
+        GameManager.Instance().SetLevelToLoad(level);
         GameManager.Instance().LaunchScene("PlayScene");
     }
 
