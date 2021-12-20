@@ -37,8 +37,8 @@ public class Player : MonoBehaviour
     {
         if (collider.gameObject.tag == "Asteroid")
         {
-            LevelManager.Instance().Lose();
             SetExplosion();
+            LevelManager.Instance().Lose();
             Destroy(collider.gameObject);
             Destroy(gameObject);
         }
@@ -50,11 +50,11 @@ public class Player : MonoBehaviour
 
     void SetExplosion()
     {
-        var expl = Instantiate(explosion.GetComponent<ParticleSystem>(), transform.parent);
-        expl.transform.position = transform.position;
-        expl.Stop();
-        expl.Play();
-        Destroy(expl, 3);
+        explosion = Instantiate(explosion, transform.parent);
+        explosion.transform.position = transform.position;
+        explosion.Stop();
+        explosion.Play();
+        Destroy(explosion, explosion.main.duration);
     }
 
 }

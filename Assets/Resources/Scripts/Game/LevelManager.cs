@@ -9,7 +9,7 @@ public class LevelManager : Singleton<LevelManager>
     private AsteroidFactory asteroidF;
     private List<GameObject> asteroids = new List<GameObject>();
     private GameObject player;
-    public GameObject AsteroidsObject;
+    private GameObject AsteroidsObject;
     private int typePlayer = 0;
     private GameUIManager gameUIManager;
     private int deplacementY = 0;
@@ -94,6 +94,6 @@ public class LevelManager : Singleton<LevelManager>
     public void Lose()
     {
         Debug.Log("Lose");
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
     }
 }
