@@ -67,4 +67,9 @@ public class Asteroid : MonoBehaviour
         DestroyPrevent();
     }
 
+    public void SetSpeed(float speed)
+    {
+        Debug.Log("speed" + speed);
+        this.speed = speed;
+    }
 }

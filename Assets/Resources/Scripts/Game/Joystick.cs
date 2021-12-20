@@ -19,7 +19,7 @@ public class Joystick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance().GetPaused())
+        if (!GameManager.Instance().GetPaused() && !LevelManager.Instance().IsEnded())
         {
             if (Input.touchCount > 0)
             {
@@ -37,9 +37,7 @@ public class Joystick : MonoBehaviour
             }
             else
             {
-                isTouch = false;
-                isTouchMove = false;
-                transform.position = initialPosition;
+                SetInitialPosition();
             }
 
             if (isTouchMove)
@@ -51,7 +49,18 @@ public class Joystick : MonoBehaviour
                 MovePlayer(direction);
             }
         }
-        
+        else
+        {
+            SetInitialPosition();
+        }
+    }
+
+
+    void SetInitialPosition()
+    {
+        isTouch = false;
+        isTouchMove = false;
+        transform.position = initialPosition;
     }
     void MovePlayer(Vector2 direction)
     {
