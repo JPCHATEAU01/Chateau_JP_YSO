@@ -7,8 +7,9 @@ public class LevelManager : Singleton<LevelManager>
 {
     private PlayerFactory playerFactory;
     private GameObject player;
-    private int typePlayer = 1;
+    private int typePlayer = 0;
     private GameUIManager gameUIManager;
+    private int deplacementY = 1;
 
     protected override void Awake()
     {
@@ -42,6 +43,7 @@ public class LevelManager : Singleton<LevelManager>
         player.name = "player";
         GameObject shipParent = GameObject.Find("Ship");
         player = Instantiate(player, shipParent.transform);
+        player.GetComponent<Player>().SetDeplacementY(deplacementY);
     }
 
     public void SetGameUIManager(GameUIManager gameUIManager)
@@ -53,13 +55,16 @@ public class LevelManager : Singleton<LevelManager>
     {
         Sprite[] img = Resources.LoadAll<Sprite>("Sprites/Logo"); 
         Resources.LoadAll("Sprites/Logo", typeof(Sprite));
-        Debug.Log(img.Length);
-        Debug.Log(typePlayer);
         if(typePlayer >= img.Length)
         {
             typePlayer = 0;
         }
         gameUIManager.SetHandle(img[typePlayer]);
+    }
+
+    public void SetDeplacement(int deplacementY)
+    {
+        this.deplacementY = deplacementY;
     }
 
     public void Win()

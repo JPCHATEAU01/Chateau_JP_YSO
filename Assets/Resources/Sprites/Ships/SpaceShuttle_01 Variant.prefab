@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &4214235753268655253
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526217875536240610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4333618, y: 1.2715837, z: 4.191972}
+  m_Center: {x: -0.00000023841858, y: 0.081426375, z: 0.21648714}
 --- !u!114 &-1061008636553346990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,19 +38,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
---- !u!65 &4214235753268655253
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526217875536240610}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.4333618, y: 1.2715837, z: 4.191972}
-  m_Center: {x: -0.00000023841858, y: 0.081426375, z: 0.21648714}
 --- !u!1001 &1526217875536342532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 111078, guid: b271505711828fd4e9719f1b97a0922a, type: 3}
       propertyPath: m_Name
-      value: SpaceShuttle_01 Variant
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 486654, guid: b271505711828fd4e9719f1b97a0922a, type: 3}
       propertyPath: m_RootOrder

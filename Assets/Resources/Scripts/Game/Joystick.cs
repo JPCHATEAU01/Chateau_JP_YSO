@@ -7,7 +7,6 @@ public class Joystick : MonoBehaviour
     Vector2 startPoint, endPoint, initialPosition;
     bool isTouch;
     bool isTouchMove;
-    private Touch touch;
     
     void Start()
     {

@@ -47,7 +47,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1488096175762158, guid: 61954f4a94623b642b25d1e38295a31a, type: 3}
       propertyPath: m_Name
-      value: BlockyShip_Fihter_ Variant
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 4016885670465544, guid: 61954f4a94623b642b25d1e38295a31a, type: 3}
       propertyPath: m_RootOrder
