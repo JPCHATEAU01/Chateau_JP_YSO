@@ -11,14 +11,18 @@ public class AudioManager : Singleton<AudioManager>
     private string musicPlaying;
     private bool isPlay = true;
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
         LoadVolume();
         LoadAudioSources();
     }
 
     public void PlayIntro()
     {
+        Debug.Log(musicPlaying);
+        Debug.Log(intro.name);
+
         if(musicPlaying != intro.name)
         {
             musicPlaying = intro.name;
@@ -100,6 +104,7 @@ public class AudioManager : Singleton<AudioManager>
         currentPlaying.loop = true;
         currentPlaying.playOnAwake = false;
         SetVolume(currentPlaying);
+        musicPlaying = "";
         //Debug.Log(currentPlaying.isPlaying);
     }
 

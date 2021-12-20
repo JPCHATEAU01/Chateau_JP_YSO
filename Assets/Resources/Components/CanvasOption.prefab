@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4102402393007111987}
         m_TargetAssemblyTypeName: Lean.Localization.LeanLocalization, LeanLocalization
         m_MethodName: SetCurrentLanguage
         m_Mode: 5
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4102402393007111987}
         m_TargetAssemblyTypeName: Lean.Localization.LeanLocalization, LeanLocalization
         m_MethodName: SetCurrentLanguage
         m_Mode: 5
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4102402393007111987}
         m_TargetAssemblyTypeName: Lean.Localization.LeanLocalization, LeanLocalization
         m_MethodName: SetCurrentLanguage
         m_Mode: 5
