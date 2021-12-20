@@ -17,7 +17,7 @@ public class GameUIManager : MonoBehaviour
     {
         LevelManager.Instance().SetGameUIManager(this);
         optionButton.onClick.AddListener(Pause);
-        LevelManager.Instance().SetHandleImage(); 
+        LevelManager.Instance().SetHandleImage();
         LevelManager.Instance().DiplayLevel(GameManager.Instance().GetLevelToLoad());
         AudioManager.Instance().PlayCredits();
         defeat.gameObject.SetActive(false);
