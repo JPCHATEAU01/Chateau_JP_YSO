@@ -2,9 +2,17 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    private string tilte = "TITRE";
-    private string version = "0.0.2";
-    private bool isPaused = false;
+    private string tilte;
+    private string version;
+    private bool isPaused;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        tilte = Application.productName;
+        version = Application.version;
+        isPaused = false;
+    }
 
     public string GetVersion()
     {
@@ -30,6 +38,14 @@ public class GameManager : Singleton<GameManager>
     public void SetPaused(bool paused)
     {
         isPaused = paused;
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public bool GetPaused()

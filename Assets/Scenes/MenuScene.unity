@@ -629,7 +629,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 162827729}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 488111034}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ActivatePanelPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &162827729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +837,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &384406645
 RectTransform:
@@ -840,7 +852,7 @@ RectTransform:
   m_Children:
   - {fileID: 1530186096}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -892,6 +904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 1132959871}
   version: {fileID: 1923287087}
+  panelPlay: {fileID: 1530186095}
 --- !u!1 &606755584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1276,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6332594417817807285, guid: e099f56f759ce1a4ab1c41eb79cd3880, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6332594417817807285, guid: e099f56f759ce1a4ab1c41eb79cd3880, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1526,7 +1539,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 809960555}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 488111034}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: LaunchGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &809960555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1574,7 +1599,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3953679468724370261, guid: 9b2680df7923a9947937fa2121d32d3c, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3953679468724370261, guid: 9b2680df7923a9947937fa2121d32d3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1804,7 +1829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6612394800735549875, guid: 7bf6a732b448f6b47947274473c309d2, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6612394800735549875, guid: 7bf6a732b448f6b47947274473c309d2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2252,6 +2277,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   translationName: Version
   FallbackText: Version
+--- !u!1001 &1314886289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 562.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1218
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667849, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375864163249667855, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ab536f531fa3df4ca8b2d1bcca59686, type: 3}
 --- !u!1 &1416997013
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,7 +2763,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1625773041}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 488111034}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: DesactivatePanelPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1625773041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3362,6 +3456,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 482235864546895678, guid: 03add0907fb70ee419557c6d1b9629bd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4965926373781013257, guid: 03add0907fb70ee419557c6d1b9629bd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3376,7 +3474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5911967924455788245, guid: 03add0907fb70ee419557c6d1b9629bd, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5911967924455788245, guid: 03add0907fb70ee419557c6d1b9629bd, type: 3}
       propertyPath: m_AnchorMax.x

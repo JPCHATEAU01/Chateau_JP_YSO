@@ -10,6 +10,7 @@ namespace Assets.Resources.Scripts
 
         void Start()
         {
+            AudioManager.Instance();
             AudioManager.Instance().PlayIntro();
             StartCoroutine(Wait());
         }
