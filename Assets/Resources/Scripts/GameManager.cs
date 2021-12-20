@@ -5,6 +5,7 @@ public class GameManager : Singleton<GameManager>
     private string tilte;
     private string version;
     private bool isPaused;
+    private string levelToLoad = "Level2";
 
     protected override void Awake()
     {
@@ -53,5 +54,14 @@ public class GameManager : Singleton<GameManager>
         return isPaused;
     }
 
+    public string GetLevelToLoad()
+    {
+        return levelToLoad;
+    }
+
+    public void SetLevelToLoad(string levelToLoad)
+    {
+        this.levelToLoad = levelToLoad;
+    }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 0.1f;
     private int deplacementY = 0;
     private ParticleSystem explosion;
     void Start()
@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
         explosion = Resources.Load<ParticleSystem>("Sprites/Prefabs/Explosion");
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -42,7 +41,7 @@ public class Player : MonoBehaviour
             Destroy(collider.gameObject);
             Destroy(gameObject);
         }
-        if(collider.gameObject.tag == "EndLevel")
+        if(collider.gameObject.tag == "EndPoint")
         {
             LevelManager.Instance().Win();
         }

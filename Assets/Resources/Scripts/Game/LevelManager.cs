@@ -18,7 +18,10 @@ public class LevelManager : Singleton<LevelManager>
     private int numberAsteroid = 0;
     private SaveLoadDataIntoJson<Level> levelLoader;
     private Level level;
+    private GameObject endPoint;
+    private EndPointData endPointData;
     private bool isEnded = false;
+    private float endpoitStart;
 
     protected override void Awake()
     {
@@ -34,7 +37,10 @@ public class LevelManager : Singleton<LevelManager>
 
     void Update()
     {
-
+        if (!isEnded && gameUIManager != null)
+        {
+            gameUIManager.UpdateSlider(endpoitStart - endPoint.transform.position.y, endpoitStart);//player.transform.position.y,
+        }
     }
 
     public void MovePlayer(Vector2 direction)
@@ -57,14 +63,10 @@ public class LevelManager : Singleton<LevelManager>
         GameObject shipParent = GameObject.Find("Ship");
         player = Instantiate(player, shipParent.transform);
         player.GetComponent<Player>().SetDeplacementY(deplacementY);
-
-        AsteroidsObject = GameObject.Find("Asteroids");
-        asteroids = new List<GameObject>(Resources.LoadAll<GameObject>("Sprites/Asteroids"));
     }
 
     public void DisplayAsteroids()
     {
-        Debug.Log(asteroidsData.Count);
         for(int i = 0; i < asteroidsData.Count; i++)
         {
 
@@ -81,6 +83,15 @@ public class LevelManager : Singleton<LevelManager>
         asteroid.name = asteroids[0].name + numberAsteroid;
         numberAsteroid++;
         asteroid.GetComponent<Asteroid>().SetSpeed(speed);
+    }
+
+    private void ConfigEndPoint()
+    {
+        GameObject endPointParent = GameObject.Find("EndPoint");
+        Vector3 pos = new Vector3(0f, endPointData.GetPosition(), 0f);
+        endPoint = Instantiate(endPoint, pos, Quaternion.identity, endPointParent.transform);
+        endPoint.GetComponent<EndPoint>().SetSpeed(endPointData.GetSpeed());
+        endpoitStart = endPoint.transform.position.y;
     }
 
     public void SetGameUIManager(GameUIManager gameUIManager)
@@ -106,21 +117,21 @@ public class LevelManager : Singleton<LevelManager>
 
     public void Win()
     {
-        Debug.Log("Win");
-        SetEnd();
+        SetEnd(true);
     }
 
     public void Lose()
     {
-        Debug.Log("Lose");
-        SetEnd();
+        SetEnd(false);
     }
 
-    public void SetEnd()
+    public void SetEnd(bool isVictory)
     {
         isEnded = true;
-        Time.timeScale = 0;
+        StartCoroutine(Wait(isVictory));
+        //Time.timeScale = 0;
     }
+
     public bool IsEnded()
     {
         return isEnded;
@@ -133,24 +144,46 @@ public class LevelManager : Singleton<LevelManager>
         {
             level = levelLoader.LoadObject();
             asteroidsData = level.GetAsteroids();
+            endPointData = level.GetEndPoint();
         }
         catch (Exception)
         {
             asteroidsData = new List<AsteroidData>();
-            asteroidsData.Add(new AsteroidData(0, -2f, 20f, 0, 5f));
-            asteroidsData.Add(new AsteroidData(0, 0f, 40f, 0, 5f));
-            asteroidsData.Add(new AsteroidData(0, 2f, 60f, 0, 5f));
-            level = new Level("error", asteroidsData);
+            asteroidsData.Add(new AsteroidData(1, -2f, 20f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, -1f, 25f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, 0f, 30f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, 1f, 35f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, 2f, 40f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, 1f, 45f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, 0f, 50f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, -1f, 55f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, -2f, 60f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, -2f, 70f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, -1f, 70f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, 0f, 70f, 0, 5f));
+            asteroidsData.Add(new AsteroidData(1, 1f, 70f, 0, 5f));
+            endPointData = new EndPointData(110f, 5f);
+            level = new Level("level2", asteroidsData, endPointData);
             levelLoader.SaveIntoJson(level);
         }
         DisplayAsteroids();
+        ConfigEndPoint();
     }
 
     public void DiplayLevel(string name)
     {
         isEnded = false;
+        AsteroidsObject = GameObject.Find("Asteroids");
+        asteroids = new List<GameObject>(Resources.LoadAll<GameObject>("Sprites/Asteroids"));
+        endPoint = Resources.Load<GameObject>("Sprites/EndPoint/EndLevel");
         DisplayPlayer();
         LoadLevel(name);
+    }
+
+    IEnumerator Wait(bool isVictory)
+    {
+        yield return new WaitForSeconds(2f);
+        gameUIManager.End(isVictory);
     }
 
 }

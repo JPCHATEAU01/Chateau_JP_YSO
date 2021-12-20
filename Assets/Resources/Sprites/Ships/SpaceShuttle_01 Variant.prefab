@@ -37,7 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed3fd3cf495fe544b376dcf01d3c08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 30
 --- !u!1001 &1526217875536342532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 111078, guid: b271505711828fd4e9719f1b97a0922a, type: 3}
       propertyPath: m_Name
-      value: player
+      value: SpaceShuttle_01 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 486654, guid: b271505711828fd4e9719f1b97a0922a, type: 3}
       propertyPath: m_RootOrder

@@ -15,8 +15,6 @@ public class Joystick : MonoBehaviour
         isTouch = false;
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         if (!GameManager.Instance().GetPaused() && !LevelManager.Instance().IsEnded())
@@ -54,7 +52,6 @@ public class Joystick : MonoBehaviour
             SetInitialPosition();
         }
     }
-
 
     void SetInitialPosition()
     {
