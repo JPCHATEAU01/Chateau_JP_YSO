@@ -4,12 +4,14 @@ using UnityEngine.UI;
 public class CreditsManager : MonoBehaviour
 {
     public Animator animator;
+    public Text title;
     public Button optionButton;
     private bool isPaused = false;
     void Start()
     {
         AudioManager.Instance().PlayCredits();
         optionButton.onClick.AddListener(Pause);
+        title.text = GameManager.Instance().GetTitle();
     }
 
     void Update()

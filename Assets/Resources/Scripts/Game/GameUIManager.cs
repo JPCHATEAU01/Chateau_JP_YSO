@@ -14,7 +14,7 @@ public class GameUIManager : MonoBehaviour
         LevelManager.Instance().SetGameUIManager(this);
         optionButton.onClick.AddListener(Pause);
         LevelManager.Instance().SetHandleImage(); 
-        LevelManager.Instance().DisplayPlayer();
+        LevelManager.Instance().DiplayLevel("Level1");
     }
 
     private void Pause()

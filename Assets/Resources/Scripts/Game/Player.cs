@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 50f;
+    public float speed = 20f;
     private int deplacementY = 0;
+    private ParticleSystem explosion;
     void Start()
     {
-
+        explosion = Resources.Load<ParticleSystem>("Sprites/Prefabs/Explosion");
     }
 
     // Update is called once per frame
@@ -19,7 +20,6 @@ public class Player : MonoBehaviour
 
     public void SetDeplacementY(int deplacementY)
     {
-        Debug.Log(deplacementY);
         this.deplacementY = deplacementY;
     }
 
@@ -37,11 +37,24 @@ public class Player : MonoBehaviour
     {
         if (collider.gameObject.tag == "Asteroid")
         {
+            SetExplosion();
             LevelManager.Instance().Lose();
+            Destroy(collider.gameObject);
+            Destroy(gameObject);
         }
         if(collider.gameObject.tag == "EndLevel")
         {
             LevelManager.Instance().Win();
         }
     }
+
+    void SetExplosion()
+    {
+        explosion = Instantiate(explosion, transform.parent);
+        explosion.transform.position = transform.position;
+        explosion.Stop();
+        explosion.Play();
+        Destroy(explosion, explosion.main.duration);
+    }
+
 }
