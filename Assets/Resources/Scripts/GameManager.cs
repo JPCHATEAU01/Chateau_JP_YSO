@@ -32,7 +32,6 @@ public class GameManager : Singleton<GameManager>
 
     public void QuitApp()
     {
-        Debug.Log("QuitApp");
         Application.Quit();
     }
 
