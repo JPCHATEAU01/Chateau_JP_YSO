@@ -7,6 +7,7 @@ public class AudioManager : Singleton<AudioManager>
     private SaveLoadDataIntoJson<Volume> volumeData;
     private AudioClip intro;
     private AudioClip credit;
+    private AudioClip game;
     private AudioSource currentPlaying;
     private string musicPlaying;
     private bool isPlay = true;
@@ -20,7 +21,7 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlayIntro()
     {
-        if(musicPlaying != intro.name)
+        if (musicPlaying != intro.name)
         {
             musicPlaying = intro.name;
             if (currentPlaying.isPlaying)
@@ -58,18 +59,40 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
+    public void PlayGames()
+    {
+        if (musicPlaying != game.name)
+        {
+            musicPlaying = game.name;
+            if (currentPlaying.isPlaying == true)
+            {
+                currentPlaying.Stop();
+            }
+            if (isPlay)
+            {
+                currentPlaying.clip = game;
+                currentPlaying.Play();
+                //intro.Stop();
+                //credit.Play();
+            }
+        }
+    }
+
     private void SetVolume(AudioSource aS)
     {
-        //Debug.Log(volume.GetVolume());
         aS.volume = volume.GetVolume();
+    }
+
+    public float GetVolume()
+    {
+        return volume.GetVolume();
     }
 
     public void ChangeVolume(float newVolume)
     {
         volume.SetVolume(newVolume);
-        //SetVolume(intro);
-        //SetVolume(credit);
         SetVolume(currentPlaying);
+        volumeData.SaveIntoJson(new Volume(newVolume));
     }
 
     private void AddMusic(AudioSource aS)
@@ -79,14 +102,13 @@ public class AudioManager : Singleton<AudioManager>
 
     private void LoadVolume()
     {
-        volumeData = new SaveLoadDataIntoJson<Volume>("/Volume.json");
+        volumeData = new SaveLoadDataIntoJson<Volume>("Volume.json");
         try
         {
             volume = volumeData.LoadObject();
         }
         catch (Exception)
         {
-            //Debug.Log(e);
             volume = new Volume();
             volumeData.SaveIntoJson(volume);
         }
@@ -96,6 +118,7 @@ public class AudioManager : Singleton<AudioManager>
     {
         intro = (AudioClip)Resources.Load("Musics/MusicIntro");
         credit = (AudioClip)Resources.Load("Musics/MusicCredit");
+        game = (AudioClip)Resources.Load("Musics/MusicGame");
         currentPlaying = gameObject.AddComponent<AudioSource>();
         currentPlaying.clip = intro;
         currentPlaying.loop = true;

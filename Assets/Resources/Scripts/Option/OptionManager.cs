@@ -9,6 +9,11 @@ public class OptionManager : Singleton<OptionManager>, IVisible
     public Slider musicSlider;
     public Toggle musicToggle;
 
+    public void Start()
+    {
+        musicSlider.value = (int)(AudioManager.Instance().GetVolume() * 100);
+    }
+
     public void ChangeSlider()
     {
         AudioManager.Instance().ChangeVolume(musicSlider.value / 100);

@@ -17,16 +17,16 @@ public class SaveLoadDataIntoJson<T>
 
     public void SaveIntoJson(T objectToSave)
     {
-        Debug.Log("save" + objectToSave.ToString());
+        //Debug.Log("save" + objectToSave.ToString());
         string objectString = JsonUtility.ToJson(objectToSave);
-        Debug.Log("in memory" + objectString);
-        System.IO.File.WriteAllText(path + file, objectString);
-        Debug.Log("save in " + Application.persistentDataPath + " text " + objectString);
+        //Debug.Log("in memory" + objectString);
+        System.IO.File.WriteAllText(path + Path.DirectorySeparatorChar + file, objectString);
+        //Debug.Log("save in " + Application.persistentDataPath + " text " + objectString);
     }
 
     public T LoadObject()
     {
-        string saveFile = path + file;
+        string saveFile = path + Path.DirectorySeparatorChar + file;
         T ObjectToLoad;
         if (File.Exists(saveFile))
         {

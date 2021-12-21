@@ -19,7 +19,7 @@ public class GameUIManager : MonoBehaviour
         optionButton.onClick.AddListener(Pause);
         LevelManager.Instance().SetHandleImage();
         LevelManager.Instance().DiplayLevel(GameManager.Instance().GetLevelToLoad());
-        AudioManager.Instance().PlayCredits();
+        AudioManager.Instance().PlayGames();
         defeat.gameObject.SetActive(false);
         victory.gameObject.SetActive(false);
         panelEnd.gameObject.SetActive(false);
@@ -37,14 +37,16 @@ public class GameUIManager : MonoBehaviour
 
     public void End(bool isVictory)
     {
-        panelEnd.gameObject.SetActive(true);
-        if (isVictory)
-        {
-            victory.gameObject.SetActive(true);
-        }
-        else
-        {
-            defeat.gameObject.SetActive(true);
+        if(panelEnd != null) {
+            panelEnd.gameObject.SetActive(true);
+            if (isVictory)
+            {
+                victory.gameObject.SetActive(true);
+            }
+            else
+            {
+                defeat.gameObject.SetActive(true);
+            }
         }
     }
 
