@@ -16,7 +16,7 @@ public class LevelManager : Singleton<LevelManager>
     private GameUIManager gameUIManager;
     private int deplacementY = 0;
     private int numberAsteroid = 0;
-    private SaveLoadDataIntoJson<Level> levelLoader;
+    private SaveLoadDataIntoJsonFromResources<Level> levelLoader;
     private Level level;
     private GameObject endPoint;
     private EndPointData endPointData;
@@ -139,7 +139,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void LoadLevel(string name)
     {
-        levelLoader = new SaveLoadDataIntoJson<Level>("/" + name +".json");
+        levelLoader = new SaveLoadDataIntoJsonFromResources<Level>(name);
         try
         {
             level = levelLoader.LoadObject();
@@ -148,7 +148,8 @@ public class LevelManager : Singleton<LevelManager>
         }
         catch (Exception)
         {
-            asteroidsData = new List<AsteroidData>();
+            Debug.Log("ERROR ");
+            /*asteroidsData = new List<AsteroidData>();
             asteroidsData.Add(new AsteroidData(1, -2f, 20f, 0, 5f));
             asteroidsData.Add(new AsteroidData(1, -1f, 25f, 0, 5f));
             asteroidsData.Add(new AsteroidData(1, 0f, 30f, 0, 5f));
@@ -164,7 +165,7 @@ public class LevelManager : Singleton<LevelManager>
             asteroidsData.Add(new AsteroidData(1, 1f, 70f, 0, 5f));
             endPointData = new EndPointData(110f, 5f);
             level = new Level("level2", asteroidsData, endPointData);
-            levelLoader.SaveIntoJson(level);
+            levelLoader.SaveIntoJson(level);*/
         }
         DisplayAsteroids();
         ConfigEndPoint();
