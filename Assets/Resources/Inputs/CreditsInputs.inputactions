@@ -1,0 +1,33 @@
+{
+    "name": "CreditsInputs",
+    "maps": [
+        {
+            "name": "CreditsInputs",
+            "id": "8ed35cb4-6259-454b-9d5c-af39dfef691c",
+            "actions": [
+                {
+                    "name": "PassCredits",
+                    "type": "Button",
+                    "id": "045087f6-c7a8-42a3-a5a7-cbbcb91aa7d7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cc4fa042-4f74-4932-a132-c873349fabf7",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PassCredits",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
