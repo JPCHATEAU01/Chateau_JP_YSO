@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,7 @@ public class MenuManager : MonoBehaviour
     public Text title;
     public Text version;
     public GameObject panelPlay;
+    public List<Button> LevelDif;
 
     void Start()
     {
@@ -13,6 +15,11 @@ public class MenuManager : MonoBehaviour
         title.text = GameManager.Instance().GetTitle();
         version.text = GameManager.Instance().GetVersion();
         DesactivatePanelPlay();
+        foreach(Button button in LevelDif)
+        {
+            button.interactable = false;
+        }
+        MakeButtonDif();
     }
 
     public void LaunchCredits()
@@ -35,6 +42,10 @@ public class MenuManager : MonoBehaviour
         GameManager.Instance().SetLevelToLoad(level);
         GameManager.Instance().LaunchScene("PlayScene");
     }
+    public void LaunchGameDif(int dif = 0)
+    {
+        GameManager.Instance().SetDif(dif);
+    }
 
     public void QuitApp()
     {
@@ -46,4 +57,27 @@ public class MenuManager : MonoBehaviour
         OptionManager.Instance().ActivateGameObject();
     }
 
+    public void MakeButtonDif()
+    {
+        Account account = GameManager.Instance().GetAccount();
+        //TODO
+        if(account.GetDif()[0] == 1)
+        {
+            LevelDif[0].interactable = true;
+        }
+        if (account.GetDif()[0] == 2)
+        {
+            LevelDif[0].interactable = true;
+            LevelDif[1].interactable = true;
+        }
+        if (account.GetDif()[1] == 1)
+        {
+            LevelDif[2].interactable = true;
+        }
+        if (account.GetDif()[1] == 2)
+        {
+            LevelDif[2].interactable = true;
+            LevelDif[3].interactable = true;
+        }
+    }
 }

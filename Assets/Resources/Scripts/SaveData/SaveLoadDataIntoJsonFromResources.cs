@@ -31,7 +31,7 @@ public class SaveLoadDataIntoJsonFromResources<T>
         {
             textJSON = Resources.Load<TextAsset>("Data" + Path.DirectorySeparatorChar + file);
             ObjectToLoad = JsonUtility.FromJson<T>(textJSON.text);
-        }catch(Exception e)
+        }catch(Exception)
         {
             throw new Exception("SaveDataIntoJsonFromResources_LoadObject error file : " + file + " doesn't exist");
         }

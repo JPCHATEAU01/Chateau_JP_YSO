@@ -7,17 +7,25 @@ public class Asteroid : MonoBehaviour
     private float speed = 1f;
     private bool isprevent = false;
     private GameObject prevent;
-
+    private int dif = 0;
     void Start()
     {
-
+        dif = LevelManager.Instance().GetDif();
+        if(dif == 1)
+        {
+            speed += 0.3f;
+        }
+        if(dif == 2)
+        {
+            speed += 0.5f;
+        }
     }
 
     void Update()
     {
         if(transform.position.y > 10 && transform.position.y < 15)
         {
-            if (!isprevent)
+            if (!isprevent && dif < 2)
             {
                 isprevent = true;
                 Prevent();
